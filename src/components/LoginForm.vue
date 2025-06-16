@@ -116,7 +116,7 @@ export default defineComponent({
         }
 
         data.loginError = resp;
-      } catch (e) {
+      } catch (e: any) {
         data.loginError = e.message;
       }
 

@@ -1,7 +1,7 @@
 import { Torrent, BaseTorrent } from '@/types';
 
 const emptyBaseTorrent: BaseTorrent = {
-  /* eslint-disable @typescript-eslint/camelcase */
+  /* eslint-disable */
   added_on: 0,
   amount_left: 0,
   auto_tmm: false,

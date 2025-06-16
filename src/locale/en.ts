@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable */
 export default {
   lang: 'English',
   auto: 'Auto',
@@ -20,6 +20,8 @@ export default {
   force_start: 'Force Start',
   toggle_sequential: 'Toggle Sequential Download',
   info: 'Info',
+  copy_magnet_link: 'Copy manget link',
+  copied: 'Copied',
   reset: 'Reset',
   login: 'Login',
   search: 'Search',

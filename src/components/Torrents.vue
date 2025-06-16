@@ -47,6 +47,14 @@
           vertical
           inset
         />
+        <v-btn 
+          icon
+          @click="copyMagnetLink(true)"
+          :title="$t('copy_magnet_link')"
+          :disabled="!hasSelected"
+        >
+          <v-icon>mdi-magnet</v-icon>
+        </v-btn>
         <v-btn
           icon
           @click="showInfo()"
@@ -56,7 +64,7 @@
           <v-icon>mdi-alert-circle</v-icon>
         </v-btn>
         <v-menu offset-y>
-          <template v-slot:activator="{ on }">
+          <template #activator="{ on }">
             <v-btn
               icon
               v-on="on"
@@ -160,7 +168,7 @@
         :footer-props="footerProps"
         :mobile-breakpoint="0"
       >
-        <template v-slot:item="row">
+        <template #item="row">
           <tr
             :key="row.item.hash"
             @dblclick.prevent="showInfo(row.item)"
@@ -490,6 +498,29 @@ export default class Torrents extends Vue {
     this.toDelete = this.selectedRows;
   }
 
+  async copyText(text: string) {
+    if (navigator.clipboard) {
+      await navigator.clipboard.writeText(text)
+    } else {
+      let copyInput = document.createElement('input');
+      copyInput.value = text;
+      document.body.appendChild(copyInput);
+      copyInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(copyInput);
+    }
+  }
+
+  async copyMagnetLink(long: boolean) {
+    let magnetLinks = "";
+    this.selectedRows.forEach(item => {
+      const magnetLink = long ? item.magnet_uri : 'magnet:?xt=urn:btih:' + item.hash;
+      magnetLinks = magnetLinks + magnetLink + "\n";
+    });
+    await this.copyText(magnetLinks);
+    this.showSnackBar({text: tr('copied')})
+  }
+
   showInfo(row?: any) {
     this.toShowInfo = row ? [row] : this.selectedRows;
   }
@@ -553,7 +584,7 @@ export default class Torrents extends Vue {
 
     try {
       await api.setTorrentLocation(this.selectedHashes, v);
-    } catch (e) {
+    } catch (e: any) {
       this.showSnackBar({text: e});
       return;
     }

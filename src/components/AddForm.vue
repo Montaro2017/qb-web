@@ -210,7 +210,7 @@ import { Watch } from 'vue-property-decorator';
 import { Preferences, Category } from '../types';
 import { AddFormState } from '@/store/types';
 
-/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable */
 const defaultParams = {
   urls: '',
   category: '',
@@ -342,7 +342,7 @@ export default class AddForm extends Vue {
       if (resp !== 'Ok.') {
         this.error = resp;
       }
-    } catch (e) {
+    } catch (e: any) {
       this.error = e.message;
     }
 

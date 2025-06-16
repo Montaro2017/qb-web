@@ -1,3 +1,5 @@
+const { default: webpackConfig } = require("./webpack.config");
+
 module.exports = {
   outputDir: 'dist/public',
   publicPath: './',
@@ -21,11 +23,16 @@ module.exports = {
     port: 8000,
     proxy: {
       '/api': {
-        target: 'http://qb.test:8080',
+        target: 'http://192.168.2.10:8080',
       },
     },
   },
-
+  configureWebpack(config) {
+    config.resolve.fallback = {
+      path: false,
+    }
+    console.log("config", config)
+  },
   chainWebpack(config) {
     config.plugin('define').tap(args => {
       let arg = args[0]

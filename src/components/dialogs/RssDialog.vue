@@ -97,7 +97,7 @@
                 dense
                 @update:active="selectNode = $event[0]"
               >
-                <template v-slot:prepend="row">
+                <template #prepend="row">
                   <v-progress-circular
                     v-if="isItemLoading(row)"
                     indeterminate
@@ -109,7 +109,7 @@
                     v-text="getRowIcon(row)"
                   />
                 </template>
-                <template v-slot:label="row">
+                <template #label="row">
                   {{ row.item.name }}
                   <template v-if="row.item.children">
                     ({{ row.item.children.length }})
@@ -398,7 +398,7 @@ export default class RssDialog extends HasTask {
 
     try {
       await api.addRssFeed(input);
-    } catch (e) {
+    } catch (e: any) {
       this.showSnackBar({
         text: e.response ? e.response.data : e.message,
       })
@@ -426,7 +426,7 @@ export default class RssDialog extends HasTask {
 
     try {
       await api.moveRssFeed(this.selectedPath!, input);
-    } catch (e) {
+    } catch (e: any) {
       this.showSnackBar({
         text: e.response ? e.response.data : e.message,
       })
@@ -453,7 +453,7 @@ export default class RssDialog extends HasTask {
 
     try {
       await api.removeRssFeed(this.selectedPath!);
-    } catch (e) {
+    } catch (e :any) {
       this.showSnackBar({
         text: e.response ? e.response.data : e.message,
       })

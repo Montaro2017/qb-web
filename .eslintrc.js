@@ -19,7 +19,9 @@ module.exports = {
     "comma-dangle": ["error", "always-multiline"],
 
     '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/ban-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
+    'vue/multi-word-component-names': 'off',
 
     'vue/singleline-html-element-content-newline': ['warn', {
       ignores: ['pre', 'textarea', 'span', 'v-icon'],

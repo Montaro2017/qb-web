@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable */
 export default {
   lang: '简体中文',
   auto: '自动',
@@ -20,6 +20,8 @@ export default {
   force_start: '强制继续',
   toggle_sequential: '切换顺序下载',
   info: '信息',
+  copy_magnet_link: '复制磁力链接',
+  copied: '已复制',
   reset: '重置',
   login: '登录',
   search: '搜索',

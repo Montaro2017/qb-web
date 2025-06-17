@@ -28,6 +28,7 @@ module.exports = {
   configureWebpack(config) {
     config.resolve.fallback = {
       path: false,
+      fs: false,
     }
   },
   chainWebpack(config) {

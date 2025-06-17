@@ -1,6 +1,5 @@
 <template>
   <v-snackbar
-    v-bind="config"
     :value="config"
     @input="changed"
   >

@@ -137,6 +137,12 @@ export interface SearchForm {
   plugins: SearchPlugin[];
 }
 
+const SearchDialogFormProps = Vue.extend({
+  props: {
+    loading: Boolean,
+  },
+})
+
 @Component({
   computed: {
     ...mapGetters({
@@ -145,12 +151,13 @@ export interface SearchForm {
   },
 })
 export default class SearchDialogForm extends Vue {
-  searchEngineState!: SearchEnginePage;
-  searchPlugins!: SearchPlugin[];
 
   @Prop(Boolean)
-  readonly loading: boolean = false;
+  readonly loading?: Boolean;
 
+  searchEngineState!: SearchEnginePage;
+  searchPlugins!: SearchPlugin[];
+  
   plugginSelectorOpen = false;
 
   availablePlugins: SearchPlugin[] = [];

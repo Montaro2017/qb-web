@@ -125,6 +125,7 @@ export default class App extends Vue {
   drawerOptions = {
     showLogs: false,
     showRss: false,
+    showSearch: false,
     showSettings: false,
   }
   task = 0
@@ -132,7 +133,9 @@ export default class App extends Vue {
 
   mainData!: MainData
   rid!: number
-  preferences!: any
+  get preferences(): any {
+    return this.$store.state.preferences;
+  }
   config!: Config
   needAuth!: boolean
 

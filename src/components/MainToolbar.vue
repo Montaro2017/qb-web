@@ -46,18 +46,14 @@ import { mapMutations } from 'vuex';
 import Component from 'vue-class-component';
 import { Prop, Emit } from 'vue-property-decorator';
 
-@Component({
-  methods: {
-    ...mapMutations([
-      'setQuery',
-    ]),
-  },
-})
+@Component({})
 export default class MainToolbar extends Vue {
   @Prop(Boolean)
   readonly value!: boolean
 
-  setQuery!: (_: string | null) => void
+  setQuery(payload: string | null): void {
+    return this.$store.commit("setQuery",payload )
+  }
 
   focusedSearch = false
 

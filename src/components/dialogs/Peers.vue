@@ -1,5 +1,7 @@
 <template>
   <v-data-table
+    fixed-header
+    class="torrent-info-table"
     :headers="headers"
     :items="peers"
     :items-per-page="-1"

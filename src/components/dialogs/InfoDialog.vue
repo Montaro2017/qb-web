@@ -3,9 +3,11 @@
     :value="true"
     @input="closeDialog"
     :width="dialogWidth"
+    scrollable
     :fullscreen="phoneLayout"
   >
-    <v-card>
+    <!-- <div class="info-dialog"> -->
+    <v-card class="torrent-info-card">
       <v-card-title class="headline">
         <v-icon class="mr-2">
           mdi-alert-circle
@@ -31,7 +33,10 @@
           :value="tab"
           touchless
         >
-          <v-tab-item value="general">
+          <v-tab-item
+            class="torrent-info-tab-item"
+            value="general"
+          >
             <panel
               v-for="torrent in torrents"
               :key="torrent.hash"
@@ -44,7 +49,10 @@
               />
             </panel>
           </v-tab-item>
-          <v-tab-item value="trackers">
+          <v-tab-item
+            class="torrent-info-tab-item"
+            value="trackers"
+          >
             <panel
               v-for="torrent in torrents"
               :key="torrent.hash"
@@ -57,7 +65,10 @@
               />
             </panel>
           </v-tab-item>
-          <v-tab-item value="peers">
+          <v-tab-item
+            class="torrent-info-tab-item"
+            value="peers"
+          >
             <panel
               v-for="torrent in torrents"
               :key="torrent.hash"
@@ -70,7 +81,10 @@
               />
             </panel>
           </v-tab-item>
-          <v-tab-item value="content">
+          <v-tab-item
+            class="torrent-info-tab-item"
+            value="content"
+          >
             <panel
               v-for="torrent in torrents"
               :key="torrent.hash"
@@ -94,6 +108,7 @@
         />
       </v-card-actions>
     </v-card>
+    <!-- </div> -->
   </v-dialog>
 </template>
 
@@ -137,6 +152,10 @@ export default class InfoDialog extends Vue {
     return this.phoneLayout ? '100%' : '80%';
   }
 
+  get dialogHeight() {
+    return "80%";
+  }
+
   @Emit('input')
   closeDialog() {
     return false
@@ -158,7 +177,8 @@ export default class InfoDialog extends Vue {
   }
 }
 
-::v-deep .v-data-table thead th, ::v-deep .v-data-table tbody td {
+::v-deep .v-data-table thead th,
+::v-deep .v-data-table tbody td {
   padding: 0 2px !important;
   height: auto;
 
@@ -167,6 +187,7 @@ export default class InfoDialog extends Vue {
   &:first-child {
     padding: 0 0 0 8px !important;
   }
+
   &:last-child {
     padding-right: 8px !important;
   }
@@ -182,5 +203,57 @@ export default class InfoDialog extends Vue {
     bottom: 0;
     right: 0;
   }
+}
+
+::v-deep .v-dialog__content {
+  background-color: red;
+  flex-direction: column;
+}
+
+::v-deep .v-dialog {
+  flex: 1;
+  height: 100%;
+  align-items: center;
+  flex-direction: column;
+}
+
+.torrent-info-tab-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.torrent-info-card ::v-deep .v-card__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.torrent-info-card ::v-deep .v-tabs {
+  flex: 0;
+}
+
+.torrent-info-card ::v-deep .v-window {
+  display: flex;
+  flex-direction: column;
+
+  & .v-window__container {
+    min-height: 0;
+
+    & .v-window-item {
+      min-height: 0;
+
+      & .inner {
+        min-height: 0;
+        display: flex;
+        overflow-x: auto;
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+::v-deep .torrent-info-table {
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
 }
 </style>

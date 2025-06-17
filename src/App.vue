@@ -276,4 +276,8 @@ export default class App extends Vue {
 html {
   overflow-y: hidden;
 }
+
+.v-subheader {
+  white-space: nowrap;
+}
 </style>

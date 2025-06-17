@@ -254,6 +254,7 @@ export default {
     downloading: 'downloading',
     metaDL: 'metaDL',
     pausedDL: 'pausedDL',
+    stoppedDL: 'stopppedDL',
     queuedDL: 'queuedDL',
     stalledDL: 'stalledDL',
     checkingDL: 'checkingDL',

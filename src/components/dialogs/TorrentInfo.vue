@@ -1,12 +1,12 @@
 <template>
   <div class="torrent-info">
     <div class="progress">
-      <span>{{ $t('properties_widget.progress') }}:</span>
+      <span style="white-space: nowrap;">{{ $t('properties_widget.progress') }}:</span>
       <canvas
         ref="canvas"
         class="progress-inner"
       />
-      <span>{{ torrent.progress | progress }}</span>
+      <span style="white-space: nowrap;">{{ torrent.progress | progress }}</span>
     </div>
     <fieldset>
       <legend>{{ $t('properties_widget.transfer') }}</legend>

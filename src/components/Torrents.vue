@@ -19,19 +19,19 @@
         />
         <v-btn
           icon
-          @click="resumeTorrents"
-          :title="$t('resume')"
+          @click="startTorrents"
+          :title="$t('start')"
           :disabled="!hasSelected"
         >
           <v-icon>mdi-play</v-icon>
         </v-btn>
         <v-btn
           icon
-          @click="pauseTorrents"
-          :title="$t('pause')"
+          @click="stopTorrents"
+          :title="$t('stop')"
           :disabled="!hasSelected"
         >
-          <v-icon>mdi-pause</v-icon>
+          <v-icon>mdi-stop</v-icon>
         </v-btn>
 
         <v-btn
@@ -290,6 +290,13 @@ function getStateInfo(state: string) {
         color: null,
       };
       break;
+    case 'stoppedDL': {
+      icon = {
+        icon: 'stop',
+        color: 'warning',
+      };
+      break;
+    }
     case 'pausedDL':
       icon = {
         icon: 'pause',
@@ -527,6 +534,14 @@ export default class Torrents extends Vue {
 
   async resumeTorrents() {
     await api.resumeTorrents(this.selectedHashes);
+  }
+
+  async startTorrents() {
+    await api.startTorrents(this.selectedHashes);
+  }
+
+  async stopTorrents() {
+    await api.stopTorrents(this.selectedHashes);
   }
 
   async forceStartTorrents() {

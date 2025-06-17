@@ -1,7 +1,7 @@
 import { StateType } from '@/consts';
 import { Torrent } from '@/types';
 
-const dlState = ['downloading', 'metaDL', 'stalledDL', 'checkingDL', 'pausedDL', 'queuedDL', 'forcedDL', 'allocating'];
+const dlState = ['downloading', 'metaDL', 'stalledDL', 'checkingDL', 'pausedDL', 'stoppedDL','queuedDL', 'forcedDL', 'allocating'];
 const upState = ['uploading', 'stalledUP', 'checkingUP', 'queuedUP', 'forcedUP'];
 const completeState = ['uploading', 'stalledUP', 'checkingUP', 'pausedUP', 'queuedUP', 'forcedUP'];
 const activeState = ['metaDL', 'downloading', 'forcedDL', 'uploading', 'forcedUP', 'moving'];

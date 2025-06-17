@@ -153,6 +153,14 @@ class Api {
     return this.actionTorrents('resume', hashes);
   }
 
+  public startTorrents(hashes: string[]) {
+    return this.actionTorrents('start', hashes);
+  }
+
+  public stopTorrents(hashes: string[]) {
+    return this.actionTorrents('stop', hashes);
+  }
+
   public setForceStartTorrents(hashes: string[]) {
     return this.actionTorrents('setForceStart', hashes, { value: 'true' });
   }

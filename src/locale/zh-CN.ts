@@ -254,6 +254,7 @@ export default {
     downloading: '下载中',
     metaDL: '获取信息',
     pausedDL: '暂停下载',
+    stoppedDL: '停止',
     queuedDL: '排队下载',
     stalledDL: '下载',
     checkingDL: '下载校验',

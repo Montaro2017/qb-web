@@ -41,7 +41,6 @@
 <script lang="ts">
 import { throttle } from 'lodash';
 import Vue from 'vue';
-import { mapMutations } from 'vuex';
 
 import Component from 'vue-class-component';
 import { Prop, Emit } from 'vue-property-decorator';

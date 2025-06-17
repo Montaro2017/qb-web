@@ -1,5 +1,3 @@
-const { default: webpackConfig } = require("./webpack.config");
-
 module.exports = {
   outputDir: 'dist/public',
   publicPath: './',
@@ -8,7 +6,7 @@ module.exports = {
     // name: "qb-web",
     themeColor: "#4d8ad5",
     msTileColor: "#4d8ad5",
-    appleMobileWebAppCapable: 'yes',
+    mobileWebAppCapable: 'yes',
 
     iconPaths: {
       favicon32: 'img/icons/favicon-32x32.png',
@@ -31,7 +29,6 @@ module.exports = {
     config.resolve.fallback = {
       path: false,
     }
-    console.log("config", config)
   },
   chainWebpack(config) {
     config.plugin('define').tap(args => {

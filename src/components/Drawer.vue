@@ -125,12 +125,14 @@ interface MenuItem {
   select?: string;
   click?: () => void;
   children?: MenuChildrenItem[];
+  filterGroups?: MenuItem[]; 
 }
 
 interface MenuChildrenItem extends MenuItem {
   key: string | null;
   append?: string;
 }
+
 
 function getTopDomain(host: string) {
   const parts = host.split('.');
@@ -322,7 +324,8 @@ export default class Drawer extends Vue {
       ],
     });
 
-    return ([] as MenuItem[]).concat([{filterGroups}] as any, this.endItems);
+    const result =  ([] as MenuItem[]).concat([{filterGroups}] as any, this.endItems);
+    return result;
   }
 
   async switchUi() {

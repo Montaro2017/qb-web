@@ -59,7 +59,7 @@
           icon
           @click="showInfo()"
           :title="$t('info')"
-          :disabled="!hasSelected || selectedRows.length > 5"
+          :disabled="!hasSelected || selectedRows.length > 1"
         >
           <v-icon>mdi-alert-circle</v-icon>
         </v-btn>

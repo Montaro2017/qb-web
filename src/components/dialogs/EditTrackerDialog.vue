@@ -84,16 +84,14 @@
           text
           @click="back"
           v-if="step < 3"
-          v-text="step == 1 ? $t('cancel') : $t('back')"
-        >
-          Back
-        </v-btn>
+          v-text="step == 1 ? $t('cancel') : $t('label.back')"
+        />
         <v-btn
           @click="foward"
           color="warning"
           :disabled="!canNext"
           :loading="submitting"
-          v-text="[null, $t('next'), $t('confirm'), $t('close')][step]"
+          v-text="[null, $t('label.next'), $t('label.confirm'), $t('close')][step]"
         />
       </v-card-actions>
     </v-card>

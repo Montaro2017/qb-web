@@ -2,6 +2,8 @@
 
 ## 2025.06.17
 - 添加复制磁链功能
+- 优化种子信息弹窗，避免切换tab时跳动
+- 优化工具栏按钮，继续和暂停按钮修改为开始和停止按钮
 
 ## Info
 [![Tested](https://img.shields.io/badge/Tested-qBittorrent%20≥%20v4.2.5-brightgreen)](#)
